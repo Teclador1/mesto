@@ -1,0 +1,17 @@
+.popup__close {
+    width: 32px;
+    height: 32px;
+}
+
+.popup__close:hover {
+    color: #FFFFFF;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .popup__close {
+        width: 20px;
+        height: 20px;
+    }
+}

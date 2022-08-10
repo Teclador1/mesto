@@ -1,0 +1,19 @@
+.profile__pencil {
+    border: 1px solid #FFFFFF;
+    text-align: center;
+    padding: 6px;
+    margin-top: 8px;
+}
+
+.profile__pencil:hover {
+    color: #FFFFFF;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 375px) {
+    .profile__pencil {
+        padding: 3px;
+        margin-top: 7px;
+    }
+}
