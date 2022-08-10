@@ -1,0 +1,22 @@
+.profile__plus {
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
+    padding: 12px 62px;
+    height: 22px;
+    width: 22px;
+}
+
+.profile__plus:hover {
+    color: #FFFFFF;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width:720px) {
+    .profile__plus {
+        height: 16px;
+        width: 16px;
+        padding: 14px 41vw;
+        margin: 0 auto;
+    }
+}
