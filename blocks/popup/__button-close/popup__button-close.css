@@ -6,7 +6,7 @@
     left: 9px;
     border: none;
     background-color: rgba(0, 0, 0, 0);
-    background-image: url(../../../images/button_close.svg);
+    background-image: url(../../../images/close.svg);
     background-repeat: no-repeat;
     background-size: 32px;
 }
