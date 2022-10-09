@@ -1,0 +1,28 @@
+.profile__pencil-button {
+    align-self: center;
+    grid-row-start: 1;
+    grid-column-start: 2;
+    background-color: rgba(0, 0, 0, 0.0);
+    background-image: url(../../../images/pencil.svg);
+    background-size: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #FFFFFF;
+    text-align: center;
+    margin-top: 1px;
+    padding: 10px;
+}
+
+.profile__pencil-button:hover {
+    color: #FFFFFF;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 375px) {
+    .profile__pencil-button {
+        background-size: 7.5px;
+        padding: 8px;
+        margin-left: 10px;
+    }
+}

@@ -1,0 +1,9 @@
+.elements__heart-button-active {
+    align-self: center;
+    background-color: #FFFFFF;
+    background-image: url(../../../images/heart-active.svg);
+    background-size: 22px 19px;
+    background-repeat: no-repeat;
+    border: none;
+    padding: 11px;
+}
