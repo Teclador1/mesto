@@ -45,7 +45,7 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__title/_picture/popup__title_picture.css);
 @import url(../blocks/popup/__input/popup__input.css);
-@import url(../blocks/popup/__figcaption/popup__figcaption.css);
+@import url(../blocks/popup/__alt/popup__alt.css);
 @import url(../blocks/popup/__picture/popup__picture.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_name.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_profession.css);

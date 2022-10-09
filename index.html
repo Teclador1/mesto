@@ -43,7 +43,7 @@
     </template>
     <div class="popup" id="popup-edit">
         <div class="popup__container">
-            <form class="popup__form" id="form" name="form">
+            <form class="popup__form" name="form">
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <input type="text" class="popup__input popup__input_type_name" id="name" name="name" placeholder="Имя"
                     value="" required>
@@ -51,12 +51,12 @@
                     placeholder="Профессия" value="" required>
                 <button id="save" class="popup__button-rectangle" type="submit">Сохранить</button>
             </form>
-            <button id="close" class="popup__button-close" type="button"></button>
+            <button class="popup__button-close" type="button"></button>
         </div>
     </div>
     <div class="popup" id="popup-add">
         <div class="popup__container">
-            <form class="popup__form" id="form" name="form">
+            <form class="popup__form" name="form">
                 <h3 class="popup__title popup__title_picture">Новое место</h3>
                 <input type="text" class="popup__input popup__input_type_place" id="place" name="place"
                     placeholder="Название" value="" required>
@@ -64,14 +64,14 @@
                     placeholder="Ссылка на картинку" value="" required>
                 <button id="create" class="popup__button-rectangle" type="submit">Создать</button>
             </form>
-            <button id="close" class="popup__button-close" type="button"></button>
+            <button class="popup__button-close" type="button"></button>
         </div>
     </div>
     <div class="popup" id="popup-show">
         <div class="popup__container">
             <img src="#" alt="#" class="popup__picture">
-            <figcaption class="popup__figcaption">Sample text</figcaption>
-            <button id="close" class="popup__button-close" type="button"></button>
+            <h2 class="popup__alt">Sample text</h2>
+            <button class="popup__button-close" type="button"></button>
         </div>
     </div>
     <script src="scripts/index.js"></script>

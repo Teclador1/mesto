@@ -24,7 +24,7 @@ const placeInput = document.querySelector('.popup__input_type_place');
 const pictureInput = document.querySelector('.popup__input_type_link');
 
 const pictureInPopup = document.querySelector('.popup__picture');
-const figcaptionInPopup = document.querySelector('.popup__figcaption');
+const altInPopup = document.querySelector('.popup__alt');
 
 const template = document.querySelector('.template');
 const elements = document.querySelector('.elements'); // Контейнер для карточек
@@ -121,10 +121,10 @@ const createCard = (name, link) => {
         })
 
         const pictureInPopup = popupShow.querySelector('.popup__picture');
-        const figcaptionInPopup = popupShow.querySelector('.popup__figcaption');
+        const altInPopup = popupShow.querySelector('.popup__alt');
 
         pictureInPopup.setAttribute('src', link);
-        figcaptionInPopup.textContent = ('alt', name);
+        altInPopup.textContent = ('alt', name);
     }); // Тело функции popupShowData внутри функции createCard
 
     setEventListeners(cardItem)
@@ -204,10 +204,10 @@ const setEventListeners = (cardItem) => {
     const place = cardItem.querySelector('.elements__place');
 
     const pictureInPopup = popupShow.querySelector('.popup__picture');
-    const figcaptionInPopup = popupShow.querySelector('.popup__figcaption');
+    const altInPopup = popupShow.querySelector('.popup__alt');
 
     pictureInPopup.setAttribute('src', link);
-    figcaptionInPopup.textContent = ('alt', name);
+    altInPopup.textContent = ('alt', name);
 } */
 
 const formSubmitHandler = (evt) => {
