@@ -7,24 +7,24 @@ const elementsPlace = document.querySelector('.elements__place');
 const elementsPicture = document.querySelector('.elements__picture');
 
 const allPopups = document.querySelectorAll('.popup');
-const popupEdit = document.querySelector('.popup_edit');
-const popupAdd = document.querySelector('.popup_add');
-const popupShow = document.querySelector('.popup_show');
+const popupEditProfile = document.querySelector('.popup_edit');
+const popupAddCard = document.querySelector('.popup_add');
+const popupShowPicture = document.querySelector('.popup_show');
 
 const popupContainer = document.querySelector('.popup__container');
 
-const formEdit = popupEdit.querySelector('#form-edit');
-const nameInput = popupEdit.querySelector('.popup__input_type_name');
-const professionInput = popupEdit.querySelector('.popup__input_type_profession');
+const formEditProfile = popupEditProfile.querySelector('#form-edit');
+const nameInput = popupEditProfile.querySelector('.popup__input_type_name');
+const professionInput = popupEditProfile.querySelector('.popup__input_type_profession');
 
-const formAdd = popupAdd.querySelector('#form-add');
-const placeInput = popupAdd.querySelector('.popup__input_type_place');
-const pictureInput = popupAdd.querySelector('.popup__input_type_link');
+const formAddCard = popupAddCard.querySelector('#form-add');
+const placeInput = popupAddCard.querySelector('.popup__input_type_place');
+const pictureInput = popupAddCard.querySelector('.popup__input_type_link');
 
-const pictureInPopup = popupShow.querySelector('.popup__picture');
-const placeInPopup = popupShow.querySelector('.popup__place');
+const pictureInPopup = popupShowPicture.querySelector('.popup__picture');
+const placeInPopup = popupShowPicture.querySelector('.popup__place');
 
-const template = document.querySelector('.template');
+const cardTemplate = document.querySelector('.template');
 const elementsContainer = document.querySelector('.elements'); // Контейнер для карточек
 const elementsCard = document.querySelector('.elements__card'); // Карточка
 
@@ -46,7 +46,7 @@ const render = () => {
 }
 
 const createCard = (name, link) => {
-    const cardItem = template.content.cloneNode(true);
+    const cardItem = cardTemplate.content.cloneNode(true);
     const cardText = cardItem.querySelector(".elements__place");
     const cardPicture = cardItem.querySelector(".elements__picture");
     cardText.textContent = name;
@@ -77,15 +77,14 @@ const openPopup = (popup) => {
 const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupWithEsc);
-    popup.removeEventListener("click", closePopupOnOverlay);
 }
 
 const closePopupWithEsc = (popup) => {
-    if (popup.keyCode === 27) {
-        const allPopups = document.querySelector('.popup_opened');
-        closePopup(allPopups);
+    if (popup.key === "Escape") {
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
       }
-} // (popup.key === "Escape") может быть альтернативой
+} // (popup.keyCode === 27) может быть альтернативой
 
 const closePopupOnOverlay = (popup) => {
     if (popup.target.closest(".popup")) {
@@ -112,7 +111,7 @@ const handleFormSaveSubmit = (event) => {
     event.preventDefault();
     profileName.textContent = nameInput.value;
     profileProfession.textContent = professionInput.value;
-    closePopup(popupEdit);
+    closePopup(popupEditProfile);
 }
 
 // submit-функция, отвечающая за добавление новых карточек
@@ -121,21 +120,24 @@ const handleFormAddSubmit = (event) => {
     event.preventDefault();
     const adder = createCard(placeInput.value, pictureInput.value);
     elementsContainer.prepend(adder);
-    closePopup(popupAdd);
+    closePopup(popupAddCard);
 }
 
 // Остальные функции
 
-const keepPopupEdit = () => {
-    openPopup(popupEdit);
+const keepPopupEditProfile = () => {
+    openPopup(popupEditProfile);
     nameInput.value = profileName.textContent; // 'nameInput' - название переменной инпута для имени человека, a 'value' - придание атрибуту value иного значения.
     professionInput.value = profileProfession.textContent;
 }
 
-const keepPopupAdd = () => {
-    openPopup(popupAdd);
+const keepPopupAddCard = () => {
+    openPopup(popupAddCard);
     placeInput.value = "";
     pictureInput.value = "";
+    buttonCreateCard.setAttribute('disabled', true);
+    buttonCreateCard.classList.add('popup__button-rectangle-disabled');
+    buttonCreateCard.classList.remove('popup__button-rectangle');
 }
 
 const setEventListeners = (elementsCard) => {
@@ -150,9 +152,9 @@ const setEventListeners = (elementsCard) => {
 
 render();
 
-buttonEditProfile.addEventListener('click', keepPopupEdit);
+buttonEditProfile.addEventListener('click', keepPopupEditProfile);
 
-buttonAddCard.addEventListener('click', keepPopupAdd);
+buttonAddCard.addEventListener('click', keepPopupAddCard);
 
 buttonsClosePopup.forEach((closer) => {
     const commonPopup = closer.closest(".popup");
@@ -162,6 +164,6 @@ buttonsClosePopup.forEach((closer) => {
     });
 });
 
-formEdit.addEventListener('submit', handleFormSaveSubmit); // 'submit' – для кнопок, которые имеют данный тип.
+formEditProfile.addEventListener('submit', handleFormSaveSubmit); // 'submit' – для кнопок, которые имеют данный тип.
 
-formAdd.addEventListener('submit', handleFormAddSubmit);
+formAddCard.addEventListener('submit', handleFormAddSubmit);
