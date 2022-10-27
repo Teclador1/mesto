@@ -37,11 +37,11 @@ const enableValidation = () => {
             evt.preventDefault();
         });
 
-        setEventListeners2(form);
+        setValidationEventListeners(form);
     });
 };
 
-const setEventListeners2 = (form) => {
+const setValidationEventListeners = (form) => {
     const inputs = Array.from(form.querySelectorAll(settings.inputSelector));
     const submitButton = form.querySelector(settings.submitButtonSelector);
     toggleButtonState(inputs, submitButton);
