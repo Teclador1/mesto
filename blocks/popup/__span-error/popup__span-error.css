@@ -1,0 +1,26 @@
+.popup__span-error {
+    display: block;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    text-align: left;
+    margin: 5px 0px 25px 36px;
+    box-sizing: border-box;
+}
+
+.popup__span-error:last-of-type {
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 560px) {
+    .popup__span-error {
+        margin: 5px 0px 25px 24px;
+    }
+    
+    .popup__span-error:last-of-type {
+        margin-bottom: 45px;
+    }
+}
