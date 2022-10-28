@@ -19,16 +19,23 @@ const hasInvalidInput = (inputs) => {
 
 const toggleButtonState = (inputs, submitButton) => {
     if (hasInvalidInput(inputs)) {
-        submitButton.setAttribute('disabled', true)
-        submitButton.classList.add(settings.inactiveButtonClass);
-        submitButton.classList.remove('popup__button-rectangle');
+        blockSubmitButton (submitButton)
     } else {
-        submitButton.removeAttribute('disabled')
-        submitButton.classList.add('popup__button-rectangle');
-        submitButton.classList.remove(settings.inactiveButtonClass);
+        unblockSubmitButton (submitButton)
     }
 }
 
+const blockSubmitButton = (submitButton) => {
+    submitButton.setAttribute('disabled', true)
+    submitButton.classList.add(settings.inactiveButtonClass);
+    submitButton.classList.remove('popup__button-rectangle');
+}
+
+const unblockSubmitButton = (submitButton) => {
+    submitButton.removeAttribute('disabled')
+    submitButton.classList.add('popup__button-rectangle');
+    submitButton.classList.remove(settings.inactiveButtonClass);
+}
 
 const enableValidation = () => {
     const forms = Array.from(document.querySelectorAll(settings.formSelector));

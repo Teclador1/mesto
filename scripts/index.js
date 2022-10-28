@@ -54,7 +54,7 @@ const createCard = (name, link) => {
     cardPicture.setAttribute('alt', name);
 
     cardPicture.addEventListener('click', function keepPopupShow() {
-        openPopup(popupShow);
+        openPopup(popupShowPicture);
 
         pictureInPopup.setAttribute('alt', name);
         pictureInPopup.setAttribute('src', link);
@@ -71,7 +71,6 @@ const createCard = (name, link) => {
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupWithEsc);
-    popup.addEventListener("click", closePopupOnOverlay);
 }
 
 const closePopup = (popup) => {
@@ -129,15 +128,14 @@ const keepPopupEditProfile = () => {
     openPopup(popupEditProfile);
     nameInput.value = profileName.textContent; // 'nameInput' - название переменной инпута для имени человека, a 'value' - придание атрибуту value иного значения.
     professionInput.value = profileProfession.textContent;
+    blockSubmitButton (buttonSaveProfile);
 }
 
 const keepPopupAddCard = () => {
     openPopup(popupAddCard);
-    placeInput.value = "";
+    placeInput.value = ""; // В данной строке 'value' имеет значение пустой строки ввода (т. е. инпута).
     pictureInput.value = "";
-    buttonCreateCard.setAttribute('disabled', true);
-    buttonCreateCard.classList.add('popup__button-rectangle-disabled');
-    buttonCreateCard.classList.remove('popup__button-rectangle');
+    blockSubmitButton (buttonCreateCard);
 }
 
 const setEventListeners = (elementsCard) => {
@@ -167,3 +165,7 @@ buttonsClosePopup.forEach((closer) => {
 formEditProfile.addEventListener('submit', handleFormSaveSubmit); // 'submit' – для кнопок, которые имеют данный тип.
 
 formAddCard.addEventListener('submit', handleFormAddSubmit);
+
+for (let allPopups = 0; allPopups < 10000; allPopups++) {
+    document.addEventListener('click', closePopupOnOverlay)
+};
