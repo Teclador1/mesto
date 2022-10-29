@@ -61,7 +61,7 @@ const createCard = (name, link) => {
         placeInPopup.textContent = name;
     });
 
-    setEventListeners(cardItem)
+    setCardEventListeners(cardItem)
 
     return cardItem;
 }
@@ -138,7 +138,7 @@ const keepPopupAddCard = () => {
     blockSubmitButton (buttonCreateCard);
 }
 
-const setEventListeners = (elementsCard) => {
+const setCardEventListeners = (elementsCard) => {
     const buttonDeleteCard = elementsCard.querySelector('.elements__trashcan-button');
     buttonDeleteCard.addEventListener('click', deleteCard);
 
