@@ -6,7 +6,7 @@ const profileProfession = document.querySelector('.profile__profession');
 const elementsPlace = document.querySelector('.elements__place');
 const elementsPicture = document.querySelector('.elements__picture');
 
-const allPopups = document.querySelectorAll('.popup');
+const allPopups = Array.from(document.querySelectorAll('.popup')); // Массив всех попапов в сайте
 const popupEditProfile = document.querySelector('.popup_edit');
 const popupAddCard = document.querySelector('.popup_add');
 const popupShowPicture = document.querySelector('.popup_show');
@@ -86,8 +86,8 @@ const closePopupWithEsc = (popup) => {
 } // (popup.keyCode === 27) может быть альтернативой
 
 const closePopupOnOverlay = (popup) => {
-    if (popup.target.closest(".popup")) {
-        closePopup(popup.target);
+    if (popup.target === popup.currentTarget) {
+        closePopup(popup.currentTarget);
       }
 }
 
@@ -162,10 +162,10 @@ buttonsClosePopup.forEach((closer) => {
     });
 });
 
+allPopups.forEach((popup) => {
+    popup.addEventListener('click', closePopupOnOverlay)
+});
+
 formEditProfile.addEventListener('submit', handleFormSaveSubmit); // 'submit' – для кнопок, которые имеют данный тип.
 
 formAddCard.addEventListener('submit', handleFormAddSubmit);
-
-for (let allPopups = 0; allPopups < 10000; allPopups++) {
-    document.addEventListener('click', closePopupOnOverlay)
-};
