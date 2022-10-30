@@ -85,9 +85,9 @@ const closePopupWithEsc = (popup) => {
       }
 } // (popup.keyCode === 27) может быть альтернативой
 
-const closePopupOnOverlay = (popup) => {
-    if (popup.target === popup.currentTarget) {
-        closePopup(popup.currentTarget);
+const closePopupOnOverlay = (event) => {
+    if (event.target === event.currentTarget) {
+        closePopup(event.currentTarget);
       }
 }
 
